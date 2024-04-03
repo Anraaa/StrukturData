@@ -45,9 +45,11 @@ void tampilkanDataBarang(const Barang &barang){
 
 int main(){
     char lanjutInput;
+    int counter = 1;
     do{
+        cout << "\e[1;1H\e[2J";
         Barang barang;
-        cout << "========== Mengisi Data Barang ==========" << endl;
+        cout << "========== Mengisi Data Barang ke-" << counter << " ==========" << endl;
         inputDataBarang(barang);
 
         cout << "========== Data Barang Yang Sudah Diisi ==========" << endl;
@@ -57,6 +59,7 @@ int main(){
         cin >> lanjutInput;
 
         cin.ignore();
+        counter++;
     } while (lanjutInput == 'y' || lanjutInput == 'Y');
 
     cout << "Program selesai. Terima kasih!" << endl;
