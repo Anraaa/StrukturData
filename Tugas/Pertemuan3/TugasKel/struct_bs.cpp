@@ -1,3 +1,5 @@
+// Struct Untuk Bookstore atau Toko Buku
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

@@ -1,3 +1,5 @@
+// Struct Untuk Manajemen Stock Toko/Barang
+
 #include <iostream>
 #include <vector>
 #include <string>
