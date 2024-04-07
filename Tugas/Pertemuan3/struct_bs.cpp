@@ -33,13 +33,20 @@ void displayBooks() {
     }
 }
 
+void displayBook(const Book &book) {
+    cout << left << setw(10) << "ID" << setw(20) << "Title" << setw(20) << "Author" << setw(20) << "Publisher" << setw(10) << "Price" << endl;
+    cout << left << setw(10) << book.id << setw(20) << book.title << setw(20) << book.author << setw(20) << book.publisher << setw(10) << book.price << endl;
+}
+
 void searchBook(int id) {
     auto it = find_if(bookstore.begin(), bookstore.end(), [&id](const Book& book) { return book.id == id; });
     if (it != bookstore.end()) {
-        cout << "Book found: " << it->title << ", Author: " << it->author << ", Publisher: " << it->publisher << ", Price: " << it->price << endl;
+        cout << "Book found:" << endl;
+        displayBook(*it);
     } else {
-        cout << "Book not found." << endl;
+        cout << "Book not found. Please search again with the correct ID." << endl;
     }
+    getchar();
 }
 
 int main() {
@@ -80,6 +87,8 @@ int main() {
             getchar();
             clearScreen();
             displayBooks();
+            cout << endl;
+            cout << "Press Any Key To Continue..." ;   
             getchar();
             break;
         case 3:
@@ -87,6 +96,9 @@ int main() {
             cout << "Enter book ID: ";
             cin >> id;
             searchBook(id);
+            cout << endl;
+            cout << "Press Any Key To Continue..." ;
+            getchar();
             break;
         case 4:
             return 0;
