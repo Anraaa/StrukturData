@@ -19,6 +19,24 @@ struct Book {
 vector<Book> bookstore;
 
 void addBook(int id, string title, string author, string publisher, double price) {
+
+    bool idExist = false;
+    for (const auto &book : bookstore) {
+        if (book.id == id) {
+            idExist = true;
+            break;
+        }
+    }
+
+    if (idExist) {
+        cout << "\n";
+        getchar();
+        cout << "Book with ID " << id << " already exists." << endl;
+        cout << "Press Any Key To Continue..." ;
+        getchar();
+        return;
+    }
+
     Book newBook = {id, title, author, publisher, price};
     bookstore.push_back(newBook);
 }
