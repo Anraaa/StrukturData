@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/root/Perkuliahan/Smt2/StrukturData/Teori/Pertemuan5",
-      "program": "/root/Perkuliahan/Smt2/StrukturData/Teori/Pertemuan5/build/Debug/outDebug",
+      "cwd": "/root/Perkuliahan/Smt2/StrukturData/UTS_AqlaHarun_20230801388_StrukturDataCSF204",
+      "program": "/root/Perkuliahan/Smt2/StrukturData/UTS_AqlaHarun_20230801388_StrukturDataCSF204/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

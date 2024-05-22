@@ -1,6 +1,29 @@
 #include <iostream>
 #include <string>
+#include <map>
+
 using namespace std;
+
+void clearScreen() {
+    cout << "\033[2J\033[1;1H";
+}
+
+string formatPrice(double price) {
+    string reversedResult = "";
+    string priceStr = to_string((int)price);
+    int counter = 0;
+
+    for (int i = priceStr.length() - 1; i >= 0; i--) {
+        counter++;
+        reversedResult += priceStr[i];
+        if (counter % 3 == 0 && i != 0) {
+            reversedResult += '.';
+        }
+    }
+
+    string result(reversedResult.rbegin(), reversedResult.rend());
+    return result;
+}
 
 int binarySearch(string* arr[], int left, int right, string target) {
     while (left <= right) {
@@ -29,10 +52,10 @@ void bubbleSort(string* arr[], int n) {
     }
 }
 
-void displayProducts(string* products[], int n) {
+void displayProducts(string* products[], int n, map<string, double> prices) {
     cout << "Products:\n";
     for (int i = 0; i < n; i++) {
-        cout << i+1 << ". " << *products[i] << " (indeks ke-" << i << ")" << endl;
+        cout << i+1 << ". " << *products[i] << " (indeks ke-" << i << "), Harga: Rp. " << formatPrice(prices[*products[i]]) << endl;
     }
 }
 
@@ -45,8 +68,11 @@ int main() {
     products[3] = new string("VGA");
     products[4] = new string("Monitor");
 
+    map<string, double> prices = {{"Processor", 800000}, {"RAM", 650000}, {"SSD", 400000}, {"VGA", 3500000}, {"Monitor", 1250000}};
+
     int choice;
     do {
+        clearScreen();
         cout << "\nMenu:\n";
         cout << "1. Display Products (Unsorted)\n";
         cout << "2. Display Products (Sorted) & Searching Product\n";
@@ -56,18 +82,24 @@ int main() {
 
         switch (choice) {
             case 1:
-                displayProducts(products, n); // display unsorted products
+                getchar();
+                clearScreen();
+                displayProducts(products, n, prices); // display unsorted products
+                cout << endl << "Press any key to continue...";
+                getchar();
                 break;
 
             case 2:
+                clearScreen();
                 bubbleSort(products, n); // sort products
-                displayProducts(products, n); // display sorted products
+                displayProducts(products, n, prices); // display sorted products
 
                 cout << endl;
                 {
                 string target;
                 cout << "Enter product name: ";
-                cin >> target;
+                cin.ignore(); // ignore newline character from previous input
+                getline(cin, target); // get the whole line as input
                 int index = binarySearch(products, 0, n - 1, target);
                 if (index != -1) {
                     cout << "'" << target << "' found at index " << index << endl;
@@ -75,6 +107,9 @@ int main() {
                     cout << "'" << target << "' not found" << endl;
                 }
                 }
+
+                cout << endl << "Press any key to continue...";
+                getchar();
                 break;
 
             case 3:
@@ -87,7 +122,6 @@ int main() {
         }
     } while (choice != 3);
 
-    // Don't forget to delete allocated memory
     for (int i = 0; i < n; i++) {
         delete products[i];
     }
