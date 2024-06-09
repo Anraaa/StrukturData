@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 
 struct Node {
@@ -7,134 +6,211 @@ struct Node {
     Node* next;
 };
 
-Node* frontList = nullptr;
-Node* middleList = nullptr;
-Node* backList = nullptr;
+Node* head = nullptr;
 
 void insertFront(int data) {
-    Node* node = new Node();
-    node->data = data;
-    node->next = frontList;
-    frontList = node;
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = head;
+    head = newNode;
 }
 
-void insertMiddle(int data) {
-    Node* node = new Node();
-    node->data = data;
-    node->next = middleList;
-    middleList = node;
+void insertMiddle(int data, int position) {
+    if (head == nullptr) {
+        cout << "List kosong. Tidak dapat memasukkan di posisi tengah." << endl;
+        return;
+    }
+
+    Node* newNode = new Node();
+    newNode->data = data;
+
+    Node* current = head;
+    int count = 1;
+
+    while (count < position - 1 && current->next != nullptr) {
+        current = current->next;
+        count++;
+    }
+
+    if (count < position - 1) {
+    cout << "Posisi tengah tidak valid." << endl;
+    return;
+    }
+
+    newNode->next = current->next;
+    current->next = newNode;
 }
 
 void insertBack(int data) {
-    Node* node = new Node();
-    node->data = data;
-    node->next = backList;
-    backList = node;
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = nullptr;
+
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+
+    Node* current = head;
+    while (current->next != nullptr) {
+        current = current->next;
+    }
+
+    current->next = newNode;
 }
 
 void deleteFront() {
-    if (frontList == nullptr) {
-        cout << "Node depan kosong." << endl;
+    if (head == nullptr) {
+        cout << "List kosong. Tidak dapat menghapus dari depan." << endl;
         return;
     }
 
-    Node* temp = frontList;
-    frontList = frontList->next;
+    Node* temp = head;
+    head = head->next;
     delete temp;
 }
 
-void deleteMiddle() {
-    if (middleList == nullptr) {
-        cout << "Node tengah kosong." << endl;
+void deleteMiddle(int position) {
+    if (head == nullptr) {
+        cout << "List kosong. Tidak dapat menghapus dari posisi tengah." << endl;
         return;
     }
 
-    Node* temp = middleList;
-    middleList = middleList->next;
+    Node* current = head;
+    int count = 1;
+
+    while (count < position - 1 && current != nullptr) {
+        current = current->next;
+        count++;
+    }
+
+    if (current == nullptr || current->next == nullptr) {
+        cout << "Posisi tengah tidak valid." << endl;
+        return;
+    }
+
+    Node* temp = current->next;
+    current->next = current->next->next;
     delete temp;
 }
 
 void deleteBack() {
-    if (backList == nullptr) {
-        cout << "Node belakang kosong." << endl;
+    if (head == nullptr) {
+        cout << "List kosong. Tidak dapat menghapus dari belakang." << endl;
         return;
     }
 
-    Node* temp = backList;
-    backList = backList->next;
-    delete temp;
+    if (head->next == nullptr) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node* current = head;
+    while (current->next->next != nullptr) {
+        current = current->next;
+    }
+
+    delete current->next;
+    current->next = nullptr;
 }
 
-void display(Node* node, const char* label) {
-    cout << label << ": ";
-    while (node != nullptr) {
-        cout << node->data;
-        if (node->next != nullptr) {
-            cout << ", ";
+void display() {
+    if (head == nullptr) {
+        cout << "List kosong." << endl;
+        return;
+    }
+
+    Node* current = head;
+    cout << "Data: ";
+    while (current != nullptr) {
+        cout << current->data;
+        if (current->next != nullptr) {
+            cout << " -> ";
+        } else {
+            cout << " -> NULL";
         }
-        node = node->next;
+        current = current->next;
     }
-    if (strcmp(label, "Node belakang") == 0) {
-        cout << " -> NULL" << endl;
-    } else {
-        cout << " -> " << endl;
-    }
+    cout << endl;
+}
+
+void clearScreen() {
+    cout << "\033[2J\033[1;1H";
 }
 
 int main() {
-    char menu;
-    int data;
+    int menu, submenu, data, position;
     do {
-        cout << "Menu:\na. Insert node depan\nb. Insert node tengah\nc. Insert node belakang\nd. Delete node\ne. Tampilkan data\nf. Keluar\nPilih menu: ";
+        clearScreen();
+        cout << "Menu:\n1. Insert\n2. Delete\n3. Keluar\nPilih menu: ";
         cin >> menu;
+
         switch (menu) {
-            case 'a':
-                cout << "Masukkan nilai: ";
-                cin >> data;
-                insertFront(data);
+            case 1:
+                do {
+                    clearScreen();
+                    cout << "1. Insert Depan\n2. Insert Tengah\n3. Insert Belakang\n4. Tampilkan\n5. Kembali\nPilih submenu: ";
+                    cin >> submenu;
+                    if (submenu == 5) break;
+                    if (submenu == 4){
+                        getchar();
+                        display();
+                        cout << endl;
+                        cout << "Tekan enter untuk kembali.";
+                        getchar();
+                    } else {
+                        cout << "Masukkan nilai: ";
+                        cin >> data;
+                        if (submenu == 1) {
+                            insertFront(data);
+                        } else if (submenu == 2) {
+                            cout << "Masukkan posisi: ";
+                            cin >> position;
+                            insertMiddle(data, position);
+                        } else if (submenu == 3) {
+                            insertBack(data);
+                        } else {
+                            cout << "Pilihan tidak valid." << endl;
+                        }
+                    }
+                } while (submenu != 5);
                 break;
-            case 'b':
-                cout << "Masukkan nilai: ";
-                cin >> data;
-                insertMiddle(data);
+            case 2:
+                do {
+                    clearScreen();
+                    cout << "1. Delete Depan\n2. Delete Tengah\n3. Delete Belakang\n4. Tampilkan\n5. Kembali\nPilih submenu: ";
+                    cin >> submenu;
+                    if (submenu == 5) break;
+                    if (submenu == 4){
+                        getchar();
+                        display();
+                        cout << endl;
+                        cout << "Tekan enter untuk kembali.";
+                        getchar();
+                    } else {
+                        if (submenu == 1) {
+                            deleteFront();
+                        } else if (submenu == 2) {
+                            cout << "Masukkan posisi: ";
+                            cin >> position;
+                            deleteMiddle(position);
+                        } else if (submenu == 3) {
+                            deleteBack();
+                        } else {
+                            cout << "Pilihan tidak valid." << endl;
+                        }
+                    }
+                } while (submenu != 5);
                 break;
-            case 'c':
-                cout << "Masukkan nilai: ";
-                cin >> data;
-                insertBack(data);
-                break;
-            case 'd':
-                char deleteMenu;
-                cout << "Menu delete:\n1. Delete node depan\n2. Delete node tengah\n3. Delete node belakang\nPilih menu delete: ";
-                cin >> deleteMenu;
-                switch (deleteMenu) {
-                    case '1':
-                        deleteFront();
-                        break;
-                    case '2':
-                        deleteMiddle();
-                        break;
-                    case '3':
-                        deleteBack();
-                        break;
-                    default:
-                        cout << "Pilihan delete tidak valid." << endl;
-                        break;
-                }
-                break;
-            case 'e':
-                display(frontList, "Node depan");
-                display(middleList, "Node tengah");
-                display(backList, "Node belakang");
-                break;
-            case 'f':
+            case 3:
                 cout << "Keluar." << endl;
                 break;
             default:
                 cout << "Pilihan tidak valid." << endl;
                 break;
         }
-    } while (menu != 'f');
+    } while (menu != 3);
 
     return 0;
 }
