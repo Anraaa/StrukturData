@@ -33,7 +33,7 @@ void isDigit(const string& operation) {
 }
 ```
 Fungsi `isDigit()` digunakan untuk memeriksa apakah input pengguna adalah digit tunggal. Jika bukan, fungsi ini akan melempar pengecualian `invalid_argument.`
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-1.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-1.md)
 ___
 ### Fungsi notif
 ```cpp
@@ -51,7 +51,7 @@ int main() {
     string operation;
 ``` 
 Fungsi `main()` adalah titik masuk program. `bookStack` adalah stack yang digunakan untuk menyimpan buku, dan `operation` adalah variabel yang digunakan untuk menyimpan operasi yang dipilih pengguna.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-2.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-2.md)
 ___
 ### Menu Utama
 ```cpp
@@ -82,7 +82,7 @@ while (!validInput) {
 }
 ```
 Bagian ini digunakan untuk memvalidasi input pengguna. Jika input tidak valid, program akan menampilkan pesan kesalahan dan meminta pengguna untuk memasukkan input lagi.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-3.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-3.md)
 ___
 ### Operasi 1: Tambah Buku
 ```cpp
@@ -98,7 +98,7 @@ if (operation == "1") {
 }
 ```
 Jika pengguna memilih operasi 1, program akan meminta pengguna untuk memasukkan judul buku, lalu menambahkannya ke dalam stack. Setelah itu, program akan memberi notifikasi bahwa buku telah berhasil ditambahkan.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-4.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-4.md)
 ___
 ### Operasi 2: Hapus Buku
 ```cpp
@@ -114,7 +114,7 @@ else if (operation == "2") {
 }
 ```
 Jika pengguna memilih operasi 2, program akan menghapus buku paling atas dari stack. Jika stack kosong, program akan memberi tahu pengguna bahwa tidak ada buku untuk dihapus.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-5.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-5.md)
 ___
 ### Operasi 3: Daftar Buku Paling Atas
 ```cpp
@@ -129,7 +129,7 @@ else if (operation == "3") {
 }
 ```
 Jika pengguna memilih operasi 3, program akan menampilkan judul buku paling atas di stack. Jika stack kosong, program akan memberi tahu pengguna bahwa tidak ada buku di stack.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
 ___
 ### Operasi 4: Cek Stok Buku
 ```cpp
@@ -144,7 +144,7 @@ else if (operation == "4") {
 }
 ```
 Jika pengguna memilih operasi 4, program akan memeriksa apakah stack kosong atau tidak. Program akan menampilkan pesan yang sesuai berdasarkan kondisi stack.
-> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
 ___
 ### Operasi 5: Cek Jumlah Buku
 ```cpp
