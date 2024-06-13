@@ -17,7 +17,7 @@ while (!validInput) {
 
 2. `while (!validInput) { ... }`: Ini adalah loop `while` yang akan terus berjalan selama `validInput` bernilai `false`. Loop ini digunakan untuk meminta input dari pengguna sampai input tersebut valid.
 
-3. Di dalam loop `while`, kita memiliki blok `try-catch` yang digunakan untuk menangani pengecualian yang mungkin dilempar oleh fungsi `isDigit()`.
+3. Di dalam loop `while`, kita memiliki bagian kode `try-catch`. Bagian kode ini digunakan untuk menangani kesalahan yang mungkin terjadi saat menjalankan fungsi `isDigit()`. Jika fungsi `isDigit()` menemukan masalah (misalnya, pengguna memasukkan sesuatu yang bukan angka), maka akan muncul kesalahan dan bagian `catch` dari kode ini akan menangani kesalahan tersebut.
 
 4. `cout << "Pilih operasi (1-5): ";`: Ini adalah pernyataan yang mencetak prompt ke console.
 
