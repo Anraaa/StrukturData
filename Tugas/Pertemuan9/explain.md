@@ -33,6 +33,7 @@ void isDigit(const string& operation) {
 }
 ```
 Fungsi `isDigit()` digunakan untuk memeriksa apakah input pengguna adalah digit tunggal. Jika bukan, fungsi ini akan melempar pengecualian `invalid_argument.`
+> Untuk penjelasan lebih lanjut [klik disini](/all/full-exp-1.md)
 ___
 ### Fungsi notif
 ```cpp
