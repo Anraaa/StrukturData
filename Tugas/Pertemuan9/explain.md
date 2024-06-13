@@ -129,6 +129,7 @@ else if (operation == "3") {
 }
 ```
 Jika pengguna memilih operasi 3, program akan menampilkan judul buku paling atas di stack. Jika stack kosong, program akan memberi tahu pengguna bahwa tidak ada buku di stack.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
 ___
 ### Operasi 4: Cek Stok Buku
 ```cpp
