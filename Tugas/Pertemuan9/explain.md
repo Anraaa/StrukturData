@@ -155,6 +155,8 @@ else if (operation == "5") {
 }
 ```
 Jika pengguna memilih operasi 5, program akan menampilkan jumlah buku yang ada di stack.
+
+> :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
 ___
 ### Akhir Program
 ```cpp
