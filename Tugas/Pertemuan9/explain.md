@@ -65,6 +65,7 @@ while (true) {
     cout << "5. Cek Jumlah Buku (size)" << endl;
 ```
 Bagian ini adalah menu utama program. Pengguna dapat memilih operasi yang ingin dilakukan.
+`while (true)` adalah sebuah loop yang akan berjalan terus menerus sampai ada perintah untuk menghentikannya. `true` di sini adalah kondisi loop, dan karena kondisinya selalu `true`, loop ini akan berjalan tanpa henti.
 ___
 ### Validasi Input
 ```cpp
