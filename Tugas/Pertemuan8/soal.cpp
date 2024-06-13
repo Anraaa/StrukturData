@@ -25,7 +25,7 @@ void insertMiddle(int data, int position) {
     newNode->data = data;
 
     Node* current = head;
-    int count = 1;
+    int count = 0;
 
     while (count < position - 1 && current->next != nullptr) {
         current = current->next;
