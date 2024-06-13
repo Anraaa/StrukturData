@@ -144,6 +144,7 @@ else if (operation == "4") {
 }
 ```
 Jika pengguna memilih operasi 4, program akan memeriksa apakah stack kosong atau tidak. Program akan menampilkan pesan yang sesuai berdasarkan kondisi stack.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-6.md)
 ___
 ### Operasi 5: Cek Jumlah Buku
 ```cpp
