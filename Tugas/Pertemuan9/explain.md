@@ -98,6 +98,7 @@ if (operation == "1") {
 }
 ```
 Jika pengguna memilih operasi 1, program akan meminta pengguna untuk memasukkan judul buku, lalu menambahkannya ke dalam stack. Setelah itu, program akan memberi notifikasi bahwa buku telah berhasil ditambahkan.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-4.md)
 ___
 ### Operasi 2: Hapus Buku
 ```cpp
