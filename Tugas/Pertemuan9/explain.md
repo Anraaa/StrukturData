@@ -51,6 +51,7 @@ int main() {
     string operation;
 ``` 
 Fungsi `main()` adalah titik masuk program. `bookStack` adalah stack yang digunakan untuk menyimpan buku, dan `operation` adalah variabel yang digunakan untuk menyimpan operasi yang dipilih pengguna.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-2.md)
 ___
 ### Menu Utama
 ```cpp
