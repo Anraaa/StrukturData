@@ -82,6 +82,7 @@ while (!validInput) {
 }
 ```
 Bagian ini digunakan untuk memvalidasi input pengguna. Jika input tidak valid, program akan menampilkan pesan kesalahan dan meminta pengguna untuk memasukkan input lagi.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-3.md)
 ___
 ### Operasi 1: Tambah Buku
 ```cpp
