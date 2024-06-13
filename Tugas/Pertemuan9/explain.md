@@ -114,6 +114,7 @@ else if (operation == "2") {
 }
 ```
 Jika pengguna memilih operasi 2, program akan menghapus buku paling atas dari stack. Jika stack kosong, program akan memberi tahu pengguna bahwa tidak ada buku untuk dihapus.
+> Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-5.md)
 ___
 ### Operasi 3: Daftar Buku Paling Atas
 ```cpp
