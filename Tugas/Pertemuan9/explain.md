@@ -34,8 +34,6 @@ void isDigit(const string& operation) {
 ```
 Fungsi `isDigit()` digunakan untuk memeriksa apakah input pengguna adalah digit tunggal. Jika bukan, fungsi ini akan melempar pengecualian `invalid_argument.`
 > :memo: **Note:** Untuk penjelasan lebih lanjut [klik disini](/Tugas/Pertemuan9/all/full-exp-1.md)
->
-> :memo: **Note:** Untuk penjelasan lebih lanjut <a href="/Tugas/Pertemuan9/all/full-exp-1.md" target="_blank">klik disini</a>
 ___
 ### Fungsi notif
 ```cpp
