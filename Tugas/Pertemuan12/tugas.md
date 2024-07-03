@@ -5,6 +5,19 @@
 ### Jawaban
 
 ```
-Paths dari edge A ke edge K: A, B, E, F, K
-total edge: 59
+Paths dari edge A ke edge K: A, C, E, H, J, K
+Total Edge: 44
+```
+
+___
+
+<div align="center">
+    <img src="https://github.com/Anraaa/StrukturData/blob/main/Tugas/Pertemuan12/soal2.png" alt="Soal 2">
+</div>
+
+### Jawaban
+
+```
+Paths dari edge A ke edge K: A, C, E, H, J, K
+Total Edge: 44
 ```
