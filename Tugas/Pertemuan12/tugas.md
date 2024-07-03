@@ -2,9 +2,7 @@
     <img src="https://github.com/Anraaa/StrukturData/blob/main/Tugas/Pertemuan12/soal1.png" alt="Soal 1">
 </div>
 
-<div style=color:red>
 ### Jawaban
-</div>
 
 ```css
 Paths dari edge A ke edge K: A, C, E, H, J, K
