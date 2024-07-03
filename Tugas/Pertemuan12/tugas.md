@@ -6,7 +6,7 @@
 
 ```
 Paths dari edge A ke edge K: A, C, E, H, J, K
-Total Edge: 44
+Total Edge: 15 + 7 + 12 + 3 + 7 = 44
 ```
 
 ___
