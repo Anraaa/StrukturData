@@ -18,6 +18,5 @@ ___
 ### Jawaban
 
 ```
-Paths dari edge A ke edge K: A, C, E, H, J, K
-Total Edge: 44
+Edge yang berhubungan berdasarkan digraph (Directed Graph): (A, C), (C, D), (C, G), (C, H), (H, I), (I, G), (I, J), (J, K), (K, H), (K, F), (F, H), (F, E), (E, C), (B, A), (B, C)
 ```
