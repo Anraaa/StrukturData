@@ -19,4 +19,22 @@ ___
 
 ```
 Edge yang berhubungan berdasarkan digraph (Directed Graph): (A, C), (C, D), (C, G), (C, H), (H, I), (I, G), (I, J), (J, K), (K, H), (K, F), (F, H), (F, E), (E, C), (B, A), (B, C)
+
+Urutan Sesuai abjad:
+A → C
+B → A
+B → C
+C → D
+C → G
+C → H
+E → C
+F → E
+F → H
+F → K
+H → I
+I → G
+I → J
+J → K
+K → F
+K → H
 ```
