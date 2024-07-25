@@ -2,7 +2,6 @@
 #include <mysql/mysql.h>
 #include <sstream>
 #include <string>
-#include <vector>
 #include <iomanip>  // Untuk std::setw()
 #include <cstdlib>  // Untuk std::system()'
 #include <limits>
@@ -556,18 +555,24 @@ void return_comic(const string& username) {
 
         // Catat pengembalian
         stringstream return_query;
-        return_query << "INSERT INTO pengembalian (peminjaman_id, tanggal_pengembalian) VALUES ("
-                    << peminjaman_id << ", CURDATE())";
+        return_query << "UPDATE peminjaman SET tanggal_pengembalian = CURDATE() WHERE id = " << peminjaman_id;
         if (mysql_query(conn, return_query.str().c_str())) {
-            cerr << "INSERT failed: " << mysql_error(conn) << endl;
+            cerr << "UPDATE failed: " << mysql_error(conn) << endl;
         } else {
             cout << "Comic successfully returned." << endl;
+        }
+
+        // Catat pengembalian ke tabel pengembalian
+        stringstream insert_query;
+        insert_query << "INSERT INTO pengembalian (peminjaman_id, tanggal_pengembalian, user_id) VALUES ("
+                     << peminjaman_id << ", CURDATE(), " << user_id << ")";
+        if (mysql_query(conn, insert_query.str().c_str())) {
+            cerr << "INSERT failed: " << mysql_error(conn) << endl;
         }
 
         mysql_close(conn);
     }
 }
-
 
 void ensure_admin_exists() {
     MYSQL* conn = connect_db();
@@ -707,6 +712,7 @@ int main() {
                         cout << "2. Show Comics by Genre\n";
                         cout << "3. Borrow Comic\n";
                         cout << "4. Return Comic\n";
+                        
                         cout << "5. Log Out\n";
                         cout << "Enter choice: ";
                         int user_choice;

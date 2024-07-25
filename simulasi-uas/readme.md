@@ -100,11 +100,12 @@ CREATE TABLE IF NOT EXISTS komik (
 
 #### Create table peminjaman
 ```
-CREATE TABLE IF NOT EXISTS peminjaman (
+CREATE TABLE peminjaman (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     comic_id INT,
     tanggal_peminjaman DATE,
+    tanggal_pengembalian DATE,  -- Kolom baru untuk tanggal pengembalian
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (comic_id) REFERENCES komik(id)
 );
@@ -112,14 +113,15 @@ CREATE TABLE IF NOT EXISTS peminjaman (
 
 #### Create table pengembalian
 ```
-CREATE TABLE IF NOT EXISTS peminjaman (
+CREATE TABLE pengembalian (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    peminjaman_id INT,
+    tanggal_pengembalian DATE,
     user_id INT,
-    comic_id INT,
-    tanggal_peminjaman DATE,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (comic_id) REFERENCES komik(id)
+    FOREIGN KEY (peminjaman_id) REFERENCES peminjaman(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
 ```
 
 ___
